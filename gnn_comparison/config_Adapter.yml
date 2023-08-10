@@ -1,0 +1,60 @@
+model:
+  - Mix
+device:
+  - cuda:0
+batch_size:
+  - 64
+  # - 128
+learning_rate:
+  - 0.001
+  - 0.0001
+classifier_epochs:
+  - 200
+hidden_units:  # Note: GIN add a first layer that simply adds up all node features
+  - [64, 62, 32]
+optimizer:
+  - Adam
+scheduler:
+  - null
+loss:
+  - MulticlassClassificationLoss
+train_eps:
+  # - true
+  - false
+l2:
+  - 0.
+aggregation:
+  # - mean
+  - sum
+gradient_clipping:
+  - null
+dropout:
+  - 0.4
+early_stopper:
+  -
+    class: Patience
+    args:
+      patience: 200
+      use_loss: False
+
+shuffle:
+  - True
+resume:
+  - False
+
+additional_features:
+  # - use_random
+  # - rand_id@dist:4
+  - degree
+  # NOTE: use_xxx is created by prepareDataset, e.g., use_eigen, use_random, use_onehot, use_pagerank, etc.
+  #        xxx without use_ is created by node_feature_register, e.g., degree;rand_id@total:3
+# print different features.
+
+node_attribute:
+  - True
+
+shuffle_feature:
+  - False
+
+norm_feature:
+  - True

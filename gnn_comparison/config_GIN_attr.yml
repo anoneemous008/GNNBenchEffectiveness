@@ -1,0 +1,77 @@
+model:
+  - GIN
+device:
+  - cuda:0
+batch_size:
+  - 128
+  # - 64
+learning_rate:
+  - 0.001
+classifier_epochs:
+  - 200
+# hidden_units:  # Note: GIN add a first layer that simply adds up all node features
+#   - 300
+
+hidden_units:  # Note: GIN add a first layer that simply adds up all node features
+  - [64, 300, 300, 64]
+
+layer_num:
+  - 5
+optimizer:
+  - Adam
+scheduler:
+  -
+    class: StepLR
+    args:
+      step_size: 50
+      gamma: 0.5
+loss:
+  - MulticlassClassificationLoss
+  # - BinaryClassificationLoss
+train_eps:
+  # - true
+  - false
+l2:
+  - 0.
+aggregation:
+  - mean
+gradient_clipping:
+  - null
+dropout:
+  - 0.5
+early_stopper:
+  -
+    class: Patience
+    args:
+      patience: 30
+      use_loss: False
+shuffle:
+  - True
+resume:
+  - False
+
+# additional_features:
+#   # - use_random
+#   # - rand_id@dist:4
+#   - degree
+#   # NOTE: use_xxx is created by prepareDataset, e.g., use_eigen, use_random, use_onehot, use_pagerank, etc.
+#   #        xxx without use_ is created by node_feature_register, e.g., degree;rand_id@total:3
+# # print different features.
+
+node_attribute:
+  - True
+
+shuffle_feature:
+  - False
+
+roc_auc:
+  - True
+
+# sampler:
+#   - imbalanced
+
+# mol_split:
+#   - True
+
+use_10_fold:
+  - True

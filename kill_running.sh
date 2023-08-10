@@ -1,0 +1,1 @@
+kill $(ps aux | grep 'Launch_Experiments.py' |grep -v grep| awk '{print $2}')

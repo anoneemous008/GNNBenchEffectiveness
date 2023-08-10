@@ -1,0 +1,65 @@
+model:
+  - MolecularFingerprint
+device:
+  - cuda:0
+batch_size:
+  - 64
+hidden_units:
+  - 300
+learning_rate:
+  - 0.000001
+  - 0.00001
+  - 0.0001
+  - 0.001
+dropout:
+  - 0.5
+l2:
+  - 0.0
+classifier_epochs:
+  - 150
+optimizer:
+  - Adam
+  # - SGD
+scheduler:
+  - null
+loss:
+  - MulticlassClassificationLoss
+gradient_clipping:
+  - null
+early_stopper:
+#   -
+#     class: Patience
+#     args:
+#       patience: 500
+#       use_loss: False
+  -
+    class: Patience
+    args:
+      patience: 40
+      use_loss: True
+shuffle:
+  - True
+  
+# additional_features:
+#   # - use_random
+#   # - rand_id@dist:4
+#   - degree
+  # NOTE: use_xxx is created by prepareDataset, e.g., use_eigen, use_random, use_onehot, use_pagerank, etc.
+  #        xxx without use_ is created by node_feature_register, e.g., degree;rand_id@total:3
+# print different features.
+
+
+node_attribute:
+  - True
+
+shuffle_feature:
+  - False
+
+# roc_auc:
+#   - True
+
+# sampler:
+#   - imbalanced
+
+# mol_split:
+#   - True
