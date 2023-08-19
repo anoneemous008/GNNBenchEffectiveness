@@ -1,5 +1,15 @@
 # Rethinking the Effectiveness of Graph Classification Datasets in Benchmarks for Assessing GNNs
+----
+**It's widely acknowledged that the quality of a dataset directly affects the performance of a model, much like in the fields of computer vision (CV) and natural language processing (NLP). However, in the domain of graph learning, the standards are not as mature. Determining the quality of a dataset is a crucial and intriguing challenge.**
 
+---
+## Abstract
+
+Graph classification benchmarks, vital for assessing and developing graph neural network (GNN) models, have recently been scrutinized, as simple methods like MLPs have demonstrated comparable performance on certain datasets. This leads to an important question: 
+
+* Do these benchmarks effectively distinguish the advancements of GNNs over other methodologies? If so, how do we quantitatively measure this effectiveness?
+
+In response, we propose an empirical protocol based on a fair benchmarking framework to investigate the performance discrepancy between simple methods and GNNs. We further propose a novel metric to quantify the effectiveness of a dataset by utilizing the performance gaps and considering dataset complexity. Through extensive testing across 16 real-world datasets, we found our metric to align with existing studies and intuitive assumptions. Finally, to explore the causes behind the low effectiveness, we investigated the relationship between intrinsic graph properties and task labels and developed a novel technique for generating more synthetic datasets that can precisely control these correlations. Our findings shed light on the current understanding of benchmark datasets, and our new platform backed by an effectiveness validation protocol could fuel the future evolution of graph classification benchmarks.
 
 ## Prepare Datasets:
 
